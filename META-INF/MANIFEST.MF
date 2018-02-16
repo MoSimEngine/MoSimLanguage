@@ -1,6 +1,20 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: ADL_Moddeling_Project
-Bundle-SymbolicName: ADL_Moddeling_Project; singleton:=true
+Bundle-Name: %pluginName
+Bundle-SymbolicName: ADL_Moddeling_Project;singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.emf.ecore
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: aDL_Moddeling_Project,
+ aDL_Moddeling_Project.ModularEnvironment,
+ aDL_Moddeling_Project.ModularEnvironment.impl,
+ aDL_Moddeling_Project.ModularEnvironment.util,
+ aDL_Moddeling_Project.ModularSimulation,
+ aDL_Moddeling_Project.ModularSimulation.impl,
+ aDL_Moddeling_Project.ModularSimulation.util,
+ aDL_Moddeling_Project.impl
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy

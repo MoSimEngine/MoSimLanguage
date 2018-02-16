@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADL_Moddeling_Project -->
+      <package
+            uri="kit.sdq.aDL_Moddeling_Project"
+            class="aDL_Moddeling_Project.ADL_Moddeling_ProjectPackage"
+            genModel="model/ADL_Moddeling_Project.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADL_Moddeling_Project -->
+      <package
+            uri="kit.sdq.ModularEnvironment"
+            class="aDL_Moddeling_Project.ModularEnvironment.ModularEnvironmentPackage"
+            genModel="model/ADL_Moddeling_Project.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADL_Moddeling_Project -->
+      <package
+            uri="kit.sdq.ModularSimulation"
+            class="aDL_Moddeling_Project.ModularSimulation.ModularSimulationPackage"
+            genModel="model/ADL_Moddeling_Project.genmodel"/>
+   </extension>
+
+</plugin>

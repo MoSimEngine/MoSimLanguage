@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ADL_Moddeling_Project/src" modelPluginID="ADL_Moddeling_Project"
+    modelName="ADL_Moddeling_Project" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>aDL_Moddeling_Project.ecore</foreignModel>
+  <genPackages prefix="ADL_Moddeling_Project" disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#/">
+    <genDataTypes ecoreDataType="aDL_Moddeling_Project.ecore#//ExchangeInformation"/>
+    <genDataTypes ecoreDataType="aDL_Moddeling_Project.ecore#//CommunicationManagementAddress"/>
+    <nestedGenPackages prefix="ModularEnvironment" basePackage="aDL_Moddeling_Project"
+        disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//ModularEnvironment">
+      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/RuntimeFacility">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/RuntimeFacility/Name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/RuntimeFacility/exchangeInformation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/RuntimeFacility/ManagementServiceEntity"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/RuntimeFacility/communicationmanagement"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/RuntimeFacility/session"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/RuntimeFacility/ifacilityservices"/>
+      </genClasses>
+      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServiceEntity">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServiceEntity/ServiceName"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/IManagementService">
+        <genOperations ecoreOperation="aDL_Moddeling_Project.ecore#//ModularEnvironment/IManagementService/newOperation1"/>
+      </genClasses>
+      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/CommunicationManagement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/CommunicationManagement/Address"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/CommunicationManagement/servicemanagement"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/CommunicationManagement/icommunication"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/ICommunication"/>
+      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/Session">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/Session/servicemanagement"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/IFacilityServices"/>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="ModularSimulation" basePackage="aDL_Moddeling_Project"
+        disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//ModularSimulation">
+      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularSimulation/Federate">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularSimulation/Federate/Name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularSimulation/Federate/ID"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularSimulation/Federate/isimulation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularSimulation/Federate/connectorfactory"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="aDL_Moddeling_Project.ecore#//ModularSimulation/ISimulation">
+        <genOperations ecoreOperation="aDL_Moddeling_Project.ecore#//ModularSimulation/ISimulation/simulate"/>
+      </genClasses>
+      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularSimulation/ConnectorFactory">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularSimulation/ConnectorFactory/iproduce"/>
+        <genOperations ecoreOperation="aDL_Moddeling_Project.ecore#//ModularSimulation/ConnectorFactory/produce"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="aDL_Moddeling_Project.ecore#//ModularSimulation/IProduce">
+        <genOperations ecoreOperation="aDL_Moddeling_Project.ecore#//ModularSimulation/IProduce/produce"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
