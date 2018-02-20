@@ -30,4 +30,12 @@
             genModel="model/ADL_Moddeling_Project.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADL_Moddeling_Project -->
+      <package
+            uri="http://www.example.org/basic"
+            class="aDL_Moddeling_Project.basic.BasicPackage"
+            genModel="model/ADL_Moddeling_Project.genmodel"/>
+   </extension>
+
 </plugin>

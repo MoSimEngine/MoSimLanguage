@@ -14,7 +14,15 @@ Export-Package: aDL_Moddeling_Project,
  aDL_Moddeling_Project.ModularSimulation,
  aDL_Moddeling_Project.ModularSimulation.impl,
  aDL_Moddeling_Project.ModularSimulation.util,
- aDL_Moddeling_Project.impl
+ aDL_Moddeling_Project.basic,
+ aDL_Moddeling_Project.basic.impl,
+ aDL_Moddeling_Project.basic.util,
+ aDL_Moddeling_Project.impl,
+ aDL_Moddeling_Project.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport
 Bundle-ActivationPolicy: lazy
