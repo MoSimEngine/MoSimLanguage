@@ -1,72 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="aDL_Moddeling_Project" nsURI="kit.sdq.aDL_Moddeling_Project"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="aDL_Moddeling_Project" nsURI="edu.kit.ipd.sdq.Modularization"
     nsPrefix="aDL_Moddeling_Project">
-  <eSubpackages name="ModularEnvironment" nsURI="kit.sdq.ModularEnvironment" nsPrefix="ModularEnvironment">
+  <eSubpackages name="ModularEnvironment" nsURI="edu.kit.ipd.sdq.Modularization.ModularEnvironment"
+      nsPrefix="ModularEnvironment">
     <eClassifiers xsi:type="ecore:EClass" name="MSEFacility" eSuperTypes="#//basic/Entity">
       <eAnnotations source="http://www.obeo.fr/dsl/dnc/archetype">
         <details key="archetype" value="Role"/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ManagementService" lowerBound="1"
-          upperBound="-1" eType="#//ModularEnvironment/ManagementService" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="connectionmanagement"
-          eType="#//ModularEnvironment/Connector" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ManagementService" eSuperTypes="#//basic/Entity">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="managementservice" upperBound="-1"
+          eType="#//ModularEnvironment/ManagementServices/ManagementService"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connector" eType="#//Connectors/Connector"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="serviceinterface" lowerBound="1"
+          eType="#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceInterface"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Session" eSuperTypes="#//basic/Entity">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="participatingSimulations"
-          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="sessionmodule" lowerBound="1"
-          upperBound="-1" eType="#//ModularEnvironment/SessionModule" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="participants" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
+          transient="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="TimeManagement" eSuperTypes="#//ModularEnvironment/ManagementService"/>
-    <eClassifiers xsi:type="ecore:EClass" name="SessionModule">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="moduledescription" lowerBound="1"
-          eType="#//ModularEnvironment/ModuleDescription"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="entitydescription" upperBound="-1"
-          eType="#//ModularEnvironment/EntityDescription"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ModuleDescription"/>
-    <eClassifiers xsi:type="ecore:EClass" name="EntityDescription"/>
-    <eClassifiers xsi:type="ecore:EClass" name="Connector">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="localAddress" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteAddress" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
+    <eSubpackages name="ManagementServices" nsURI="edu.kit.ipd.sdq.Modularization.ManagementServices"
+        nsPrefix="ManagementServices">
+      <eClassifiers xsi:type="ecore:EClass" name="ManagementService" eSuperTypes="#//basic/Entity">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="msefacility" eType="#//ModularEnvironment/MSEFacility"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="servicefunctionprovider"
+            upperBound="-1" eType="#//ModularEnvironment/ManagementServices/ServiceFunctionProvider"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ServiceFunctionProvider">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="servicefunctiondescription"
+            lowerBound="1" eType="#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription"/>
+      </eClassifiers>
+      <eSubpackages name="HLAClassicServices" nsURI="edu.kit.ipd.sdq.Modularization.ManagementServices.HLAClassicServices"
+          nsPrefix="HLAClassicServices"/>
+      <eSubpackages name="AdapterServices" nsURI="edu.kit.ipd.sdq.Modularization.ManagementServices.AdapterServices"
+          nsPrefix="AdapterServices">
+        <eClassifiers xsi:type="ecore:EClass" name="DataAdapter" abstract="true">
+          <eOperations name="convert"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="SemanticAdapter" eSuperTypes="#//ModularEnvironment/ManagementServices/AdapterServices/DataAdapter"/>
+        <eClassifiers xsi:type="ecore:EClass" name="DescriptiveAdapter" eSuperTypes="#//ModularEnvironment/ManagementServices/AdapterServices/DataAdapter"/>
+        <eClassifiers xsi:type="ecore:EClass" name="StructuralAdapter" eSuperTypes="#//ModularEnvironment/ManagementServices/AdapterServices/DataAdapter"/>
+        <eClassifiers xsi:type="ecore:EClass" name="ControlFlowAdapter"/>
+        <eClassifiers xsi:type="ecore:EClass" name="TimeAdapter"/>
+        <eClassifiers xsi:type="ecore:EClass" name="GenerationAdapter"/>
+      </eSubpackages>
+      <eSubpackages name="ServiceInterfaceDescription" nsURI="edu.kit.ipd.sdq.Modularization.ManagementServices.ServiceInterfaceDescription"
+          nsPrefix="ServiceInterfaceDescription">
+        <eClassifiers xsi:type="ecore:EClass" name="ServiceFunctionDescription">
+          <eOperations name="provideMRDescription" eType="#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/MachineReadableServiceDescription"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="TargetManagementService"
+              eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="TargetFunction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="Parameter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"
+              transient="true"/>
+          <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="ServiceInterface">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="servicefunctiondescription"
+              upperBound="-1" eType="#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="MachineReadableServiceDescription"/>
+      </eSubpackages>
+    </eSubpackages>
   </eSubpackages>
-  <eSubpackages name="ModularSimulation" nsURI="kit.sdq.ModularSimulation" nsPrefix="ModularSimulation">
-    <eClassifiers xsi:type="ecore:EClass" name="Federate" eSuperTypes="#//basic/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="federationdescription"
-          lowerBound="1" upperBound="-1" eType="#//ModularSimulation/FederationDescription"/>
+  <eSubpackages name="ModularSimulation" nsURI="edu.kit.ipd.sdq.Modularization.ModularSimulation"
+      nsPrefix="ModularSimulation">
+    <eClassifiers xsi:type="ecore:EClass" name="SimModule" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="simulation" lowerBound="1"
           eType="#//ModularSimulation/Simulation" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="connectorfactory" eType="#//ModularSimulation/ConnectorFactory"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="connector" eType="#//ModularSimulation/Connector"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="msedescription" eType="#//ModularSimulation/MSEDescription"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="simmoduledescription"
+          eType="#//ModularSimulation/SimModuleDescription"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connector" eType="#//Connectors/Connector"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="connectorfactory" eType="#//Connectors/ConnectorFactory"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="FederationDescription" eSuperTypes="#//basic/Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SimModuleDescription" eSuperTypes="#//basic/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="distributeddatadescription"
+          lowerBound="1" eType="#//DataRepresentation/DistributedDataDescription"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="simulationDescription"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Simulation"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ConnectorFactory">
-      <eOperations name="produce" eType="#//ModularEnvironment/Connector"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//basic/Entity">
-      <eOperations name="connect"/>
-      <eOperations name="disconnect"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="localAddress" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteAddress" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="MSEDescription">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mseAddress" upperBound="-1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="distributed" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
-    </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="basic" nsURI="http://www.example.org/basic" nsPrefix="basic">
+  <eSubpackages name="basic" nsURI="edu.kit.ipd.sdq.Modularization.basic" nsPrefix="basic">
     <eClassifiers xsi:type="ecore:EClass" name="Identifier" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
@@ -76,5 +92,117 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="#//basic/Identifier #//basic/NamedElement"/>
+  </eSubpackages>
+  <eSubpackages name="Connectors" nsURI="edu.kit.ipd.sdq.Modularization.Connectors"
+      nsPrefix="Connectors">
+    <eClassifiers xsi:type="ecore:EClass" name="ConnectorFactory">
+      <eOperations name="produceLocalConnector" eType="#//Connectors/LocalConnector"/>
+      <eOperations name="produceRemoteConnector" eType="#//Connectors/RemoteConnector"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//basic/Entity">
+      <eOperations name="snd"/>
+      <eOperations name="recv"/>
+      <eOperations name="connect"/>
+      <eOperations name="disconnect"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalConnector" eSuperTypes="#//Connectors/Connector">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="localconnector" eType="#//Connectors/LocalConnector"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RemoteConnector" eSuperTypes="#//Connectors/Connector">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="localAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConnectionDescription" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//Connectors/ConnectionType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ConnectionType">
+      <eLiterals name="Remote"/>
+      <eLiterals name="Local" value="1"/>
+      <eLiterals name="None" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalConnectionDescription" eSuperTypes="#//Connectors/ConnectionDescription">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="localconnector" eType="#//Connectors/LocalConnector"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RemoteConnectionDescription" eSuperTypes="#//Connectors/ConnectionDescription">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="remoteAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="localAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="DataRepresentation" nsURI="edu.kit.ipd.sdq.Modularization.DataRepresentation"
+      nsPrefix="DataRepresentation">
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectClass">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operation" upperBound="-1"
+          eType="#//DataRepresentation/Operation" containment="true" eOpposite="#//DataRepresentation/Operation/objectclass"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//DataRepresentation/UsageType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" upperBound="-1"
+          eType="#//DataRepresentation/Attribute" containment="true" eOpposite="#//DataRepresentation/Attribute/objectclass"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageType" eType="#//DataRepresentation/UsageType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectclass" eType="#//DataRepresentation/ObjectClass"
+          eOpposite="#//DataRepresentation/ObjectClass/attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" lowerBound="1"
+          eType="#//DataRepresentation/DataType" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SemanticDescription">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="semanticType" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DistributedDataDescription">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="publishdatadescription"
+          eType="#//DataRepresentation/PublishDataDescription"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subscribedatadescription"
+          eType="#//DataRepresentation/SubscribeDataDescription"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Operation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectclass" eType="#//DataRepresentation/ObjectClass"
+          eOpposite="#//DataRepresentation/ObjectClass/operation"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="operationName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="parameterNameTypeMap"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap" transient="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="UsageType">
+      <eLiterals name="Visible"/>
+      <eLiterals name="Modifyable" value="1"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="SubscribeInteraction">
+      <eLiterals name="Subscribe" value="1"/>
+      <eLiterals name="SubscribeAndModify" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PublishDataDescription">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          changeable="false" defaultValueLiteral="publish"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectclass" upperBound="-1"
+          eType="#//DataRepresentation/ObjectClass"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mseSessionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubscribeDataDescription">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="targetObjectClass" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subscribedata" upperBound="-1"
+          eType="#//DataRepresentation/SubscribeData" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="mseSessionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SubscribeData">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="attributeName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="semanticdatadescription"
+          eType="#//DataRepresentation/SemanticDescription" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="interaction" lowerBound="1"
+          eType="#//DataRepresentation/SubscribeInteraction" defaultValueLiteral="Subscribe"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="semanticdatadescription"
+          lowerBound="1" eType="#//DataRepresentation/SemanticDescription" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="measurementunit" eType="#//DataRepresentation/measurementUnit"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="measurementUnit">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

@@ -8,6 +8,18 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: aDL_Moddeling_Project,
+ aDL_Moddeling_Project.Connectors,
+ aDL_Moddeling_Project.Connectors.impl,
+ aDL_Moddeling_Project.Connectors.util,
+ aDL_Moddeling_Project.ManagementServices,
+ aDL_Moddeling_Project.ManagementServices.AdapterServices,
+ aDL_Moddeling_Project.ManagementServices.AdapterServices.impl,
+ aDL_Moddeling_Project.ManagementServices.AdapterServices.util,
+ aDL_Moddeling_Project.ManagementServices.ServiceInterfaceDescription,
+ aDL_Moddeling_Project.ManagementServices.ServiceInterfaceDescription.impl,
+ aDL_Moddeling_Project.ManagementServices.ServiceInterfaceDescription.util,
+ aDL_Moddeling_Project.ManagementServices.impl,
+ aDL_Moddeling_Project.ManagementServices.util,
  aDL_Moddeling_Project.ModularEnvironment,
  aDL_Moddeling_Project.ModularEnvironment.impl,
  aDL_Moddeling_Project.ModularEnvironment.util,
