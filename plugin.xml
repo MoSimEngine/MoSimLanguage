@@ -17,6 +17,38 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated ADL_Moddeling_Project -->
       <package
+            uri="edu.kit.ipd.sdq.Modularization.ManagementServices"
+            class="aDL_Moddeling_Project.ModularEnvironment.ManagementServices.ManagementServicesPackage"
+            genModel="model/ADL_Moddeling_Project.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADL_Moddeling_Project -->
+      <package
+            uri="edu.kit.ipd.sdq.Modularization.ManagementServices.HLAClassicServices"
+            class="aDL_Moddeling_Project.ModularEnvironment.ManagementServices.HLAClassicServices.HLAClassicServicesPackage"
+            genModel="model/ADL_Moddeling_Project.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADL_Moddeling_Project -->
+      <package
+            uri="edu.kit.ipd.sdq.Modularization.ManagementServices.AdapterServices"
+            class="aDL_Moddeling_Project.ModularEnvironment.ManagementServices.AdapterServices.AdapterServicesPackage"
+            genModel="model/ADL_Moddeling_Project.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADL_Moddeling_Project -->
+      <package
+            uri="edu.kit.ipd.sdq.Modularization.ManagementServices.ServiceInterfaceDescription"
+            class="aDL_Moddeling_Project.ModularEnvironment.ManagementServices.ServiceInterfaceDescription.ServiceInterfaceDescriptionPackage"
+            genModel="model/ADL_Moddeling_Project.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ADL_Moddeling_Project -->
+      <package
             uri="edu.kit.ipd.sdq.Modularization.ModularSimulation"
             class="aDL_Moddeling_Project.ModularSimulation.ModularSimulationPackage"
             genModel="model/ADL_Moddeling_Project.genmodel"/>
@@ -41,24 +73,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated ADL_Moddeling_Project -->
       <package
-            uri="edu.kit.ipd.sdq.Modularization.ManagementServices"
-            class="aDL_Moddeling_Project.ManagementServices.ManagementServicesPackage"
-            genModel="model/ADL_Moddeling_Project.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated ADL_Moddeling_Project -->
-      <package
-            uri="edu.kit.ipd.sdq.Modularization.ManagementServices.AdapterServices"
-            class="aDL_Moddeling_Project.ManagementServices.AdapterServices.AdapterServicesPackage"
-            genModel="model/ADL_Moddeling_Project.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated ADL_Moddeling_Project -->
-      <package
-            uri="edu.kit.ipd.sdq.Modularization.ManagementServices.ServiceInterfaceDescription"
-            class="aDL_Moddeling_Project.ManagementServices.ServiceInterfaceDescription.NewPackage3Package"
+            uri="edu.kit.ipd.sdq.Modularization.DataRepresentation"
+            class="aDL_Moddeling_Project.DataRepresentation.DataRepresentationPackage"
             genModel="model/ADL_Moddeling_Project.genmodel"/>
    </extension>
 
