@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/ADL_Moddeling_Project/src" modelPluginID="ADL_Moddeling_Project"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/edu.kit.ipd.sdq.ModularizationLanguage/src" modelPluginID="ADL_Moddeling_Project"
     modelName="GM" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
@@ -8,10 +8,17 @@
   <genPackages prefix="ADL_Moddeling_Project" disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#/">
     <nestedGenPackages prefix="ModularEnvironment" basePackage="aDL_Moddeling_Project"
         disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//ModularEnvironment">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="aDL_Moddeling_Project.ecore#//ModularEnvironment/MSEType">
+        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//ModularEnvironment/MSEType/Master"/>
+        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//ModularEnvironment/MSEType/Worker"/>
+      </genEnums>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/MSEFacility">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/MSEFacility/connector"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/MSEFacility/serviceinterface"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/MSEFacility/providedServiceInterface"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/MSEFacility/managementservice"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/MSEFacility/mseCouplingType"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/MSEFacility/usedServiceInterface"/>
       </genClasses>
       <nestedGenPackages prefix="ManagementServices" basePackage="aDL_Moddeling_Project.ModularEnvironment"
           disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices">
@@ -20,10 +27,6 @@
               ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ManagementService/managementservice"/>
           <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ManagementService/msefacility"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ManagementService/servicefunctiondescription"/>
-        </genClasses>
-        <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceFunctionProvider">
-          <genFeatures children="true" createChild="true" propertySortChoices="true"
-              ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceFunctionProvider/servicefunctiondescription"/>
         </genClasses>
         <nestedGenPackages prefix="HLAClassicServices" basePackage="aDL_Moddeling_Project.ModularEnvironment.ManagementServices"
             disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/HLAClassicServices">
@@ -58,14 +61,20 @@
         <nestedGenPackages prefix="ServiceInterfaceDescription" basePackage="aDL_Moddeling_Project.ModularEnvironment.ManagementServices"
             disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription">
           <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription">
-            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription/TargetManagementService"/>
-            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription/TargetFunction"/>
-            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription/Parameter"/>
-            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription/Description"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription/targetFunction"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription/description"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription/parameters"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceFunctionDescription/managementServiceID"/>
           </genClasses>
           <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceInterface">
             <genFeatures notify="false" createChild="false" propertySortChoices="true"
                 ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceInterface/servicefunctiondescription"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/ServiceInterface/belongingMSEFacilityID"/>
+          </genClasses>
+          <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/StringToStringMap">
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/StringToStringMap/key"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularEnvironment/ManagementServices/ServiceInterfaceDescription/StringToStringMap/value"/>
           </genClasses>
         </nestedGenPackages>
       </nestedGenPackages>
@@ -79,6 +88,9 @@
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularSimulation/SimModuleDescription">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//ModularSimulation/SimModuleDescription/simulationDescription"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularSimulation/SimModuleDescription/distributeddatadescription"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularSimulation/SimModuleDescription/AdaptationSpecs"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularSimulation/SimModuleDescription/serviceinterface"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Basic" basePackage="aDL_Moddeling_Project" disposableProviderFactory="true"
@@ -93,11 +105,6 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Connectors" basePackage="aDL_Moddeling_Project" disposableProviderFactory="true"
         ecorePackage="aDL_Moddeling_Project.ecore#//Connectors">
-      <genEnums typeSafeEnumCompatible="false" ecoreEnum="aDL_Moddeling_Project.ecore#//Connectors/ConnectionType">
-        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//Connectors/ConnectionType/Remote"/>
-        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//Connectors/ConnectionType/Local"/>
-        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//Connectors/ConnectionType/None"/>
-      </genEnums>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//Connectors/Connector">
         <genOperations ecoreOperation="aDL_Moddeling_Project.ecore#//Connectors/Connector/snd"/>
         <genOperations ecoreOperation="aDL_Moddeling_Project.ecore#//Connectors/Connector/recv"/>
@@ -109,15 +116,21 @@
             ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//Connectors/LocalConnector/localconnector"/>
       </genClasses>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//Connectors/RemoteConnector">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//Connectors/RemoteConnector/localAddress"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//Connectors/RemoteConnector/remoteAddress"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//Connectors/RemoteConnector/localAdress"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//Connectors/RemoteConnector/remoteAdresses"/>
+      </genClasses>
+      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//Connectors/DescriptiveAdress">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//Connectors/DescriptiveAdress/adress"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="DataRepresentation" basePackage="aDL_Moddeling_Project"
         disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="aDL_Moddeling_Project.ecore#//DataRepresentation/UsageType">
-        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//DataRepresentation/UsageType/Visible"/>
-        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//DataRepresentation/UsageType/Modifyable"/>
+        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//DataRepresentation/UsageType/LocallyVisible"/>
+        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//DataRepresentation/UsageType/GloballyVisible"/>
+        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//DataRepresentation/UsageType/LocallyModifiable"/>
+        <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//DataRepresentation/UsageType/GloballyModifiable"/>
       </genEnums>
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeType">
         <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeType/Subscribe"/>
@@ -137,25 +150,27 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/PublishDataDescription/objectclass"/>
       </genClasses>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeDataDescription">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeDataDescription/targetObjectClass"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeDataDescription/subscribedata"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeDataDescription/mseSessionID"/>
       </genClasses>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeData">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeData/attributeName"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeData/semanticdatadescription"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeData/interaction"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeData/Class"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeData/subscriptionAttributeID"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/SubscribeData/subscriptionClassID"/>
       </genClasses>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/Unit">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/Unit/unitName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/Unit/baseType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/Unit/stepSize"/>
       </genClasses>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/ObjectClass">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/ObjectClass/usageType"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/ObjectClass/attribute"/>
       </genClasses>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/Attribute">
-        <genTypeParameters ecoreTypeParameter="aDL_Moddeling_Project.ecore#//DataRepresentation/Attribute/T"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/Attribute/usageType"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/Attribute/semanticdatatype"/>
       </genClasses>
