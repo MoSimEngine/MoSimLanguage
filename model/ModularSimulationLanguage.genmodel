@@ -212,10 +212,10 @@
       </genClasses>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/Property">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/Property/semanticdescription"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/Property/singleValue"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/Property/objectclass"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/Property/msepropertyadditionsetter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/Property/initialValue"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/Property/property"/>
       </genClasses>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/BaseDataType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/BaseDataType/baseValueType"/>
@@ -238,9 +238,9 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/UnitEnhancedProperty/unit"/>
       </genClasses>
-      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/BasicProperty">
+      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/BasicTypeProperty">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/BasicProperty/basedatatype"/>
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/BasicTypeProperty/basedatatype"/>
       </genClasses>
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/Unit">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -259,6 +259,12 @@
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/DataSpecificationContainer">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/DataSpecificationContainer/basedatatype"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/DataSpecificationContainer/unittypecontainer"/>
+      </genClasses>
+      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/ContainerProperty"/>
+      <genClasses image="false" ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/DataType"/>
+      <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/CombnedDataType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/CombnedDataType/basedatatype"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

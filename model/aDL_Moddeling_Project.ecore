@@ -278,17 +278,16 @@
     <eClassifiers xsi:type="ecore:EClass" name="Property" abstract="true" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="semanticdescription"
           eType="#//DataRepresentation/SemanticDescription" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="singleValue" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
-          defaultValueLiteral="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="objectclass" eType="#//DataRepresentation/ProvidedObjectClass"
           eOpposite="#//DataRepresentation/ProvidedObjectClass/property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="msepropertyadditionsetter"
           upperBound="-1" eType="#//ModularEnvironment/ManagementServices/MSEPropertyAdditionSetter"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="initialValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+          eType="#//DataRepresentation/Property" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BaseDataType" eSuperTypes="#//basic/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="BaseDataType" eSuperTypes="#//DataRepresentation/DataType">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseValueType" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="stepSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -301,7 +300,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="stringToDataTypeMap" instanceClassName="java.util.Map$Entry">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
-          eType="#//DataRepresentation/BaseDataType"/>
+          eType="#//DataRepresentation/DataType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ObjectClassOperation" eSuperTypes="#//DataRepresentation/Operation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="objectclass" eType="#//DataRepresentation/ProvidedObjectClass"
@@ -311,13 +310,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1"
           eType="#//DataRepresentation/Unit"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BasicProperty" eSuperTypes="#//DataRepresentation/Property">
+    <eClassifiers xsi:type="ecore:EClass" name="BasicTypeProperty" eSuperTypes="#//DataRepresentation/Property">
       <eStructuralFeatures xsi:type="ecore:EReference" name="basedatatype" lowerBound="1"
-          eType="#//DataRepresentation/BaseDataType"/>
+          eType="#//DataRepresentation/DataType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Unit" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="basedatatype" lowerBound="1"
-          eType="#//DataRepresentation/BaseDataType"/>
+          eType="#//DataRepresentation/DataType"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitShortForm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="unitrange" eType="#//DataRepresentation/UnitRange"
           containment="true"/>
@@ -334,9 +333,14 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataSpecificationContainer">
       <eStructuralFeatures xsi:type="ecore:EReference" name="basedatatype" upperBound="-1"
-          eType="#//DataRepresentation/BaseDataType" containment="true"/>
+          eType="#//DataRepresentation/DataType" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="unittypecontainer" upperBound="-1"
           eType="#//DataRepresentation/UnitTypeContainer" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ContainerProperty" eSuperTypes="#//DataRepresentation/Property"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//basic/Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CombnedDataType" eSuperTypes="#//DataRepresentation/DataType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="basedatatype" eType="#//DataRepresentation/BaseDataType"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
