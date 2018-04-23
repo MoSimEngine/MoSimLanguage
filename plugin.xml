@@ -78,4 +78,20 @@
             genModel="model/ADL_Moddeling_Project.genmodel"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ModularSimulationLanguage -->
+      <package
+            uri="edu.kit.ipd.sdq.Modularization.BasicADLModelling"
+            class="aDL_Moddeling_Project.BasicADLModelling.BasicADLModellingPackage"
+            genModel="model/ModularSimulationLanguage.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated ModularSimulationLanguage -->
+      <package
+            uri="edu.kit.ipd.sdq.Modularization.SimulationArchitecture"
+            class="aDL_Moddeling_Project.ModularSimulationArchitecture.ModularSimulationArchitecturePackage"
+            genModel="model/ModularSimulationLanguage.genmodel"/>
+   </extension>
+
 </plugin>
