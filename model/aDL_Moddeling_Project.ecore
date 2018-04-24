@@ -4,7 +4,7 @@
     nsPrefix="aDL_Moddeling_Project">
   <eSubpackages name="ModularEnvironment" nsURI="edu.kit.ipd.sdq.Modularization.ModularEnvironment"
       nsPrefix="ModularEnvironment">
-    <eClassifiers xsi:type="ecore:EClass" name="Coordinator" abstract="true" eSuperTypes="#//ModularSimulationAssembly/Connectable">
+    <eClassifiers xsi:type="ecore:EClass" name="Coordinator" eSuperTypes="#//ModularSimulationAssembly/Connectable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="managementservice" upperBound="-1"
           eType="#//ModularEnvironment/ManagementServices/ManagementService" containment="true"
           eOpposite="#//ModularEnvironment/ManagementServices/ManagementService/msefacility"/>
@@ -52,9 +52,10 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="MSEPropertyAdditionContainer" abstract="true"
           eSuperTypes="#//basic/Entity"/>
-      <eClassifiers xsi:type="ecore:EClass" name="MSEPropertyAdditionSetter">
+      <eClassifiers xsi:type="ecore:EClass" name="MSEPropertyAdditionSetter" abstract="true"
+          eSuperTypes="#//ModularEnvironment/ManagementServices/AdditionSetter">
         <eStructuralFeatures xsi:type="ecore:EReference" name="msepropertyadditioncontainer"
-            lowerBound="1" eType="#//ModularEnvironment/ManagementServices/MSEPropertyAdditionContainer"/>
+            lowerBound="1" eType="#//ModularEnvironment/ManagementServices/MSEPropertyAddition"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="additionValue" eSuperTypes="#//basic/Entity"/>
       <eClassifiers xsi:type="ecore:EClass" name="MultipleSetAddition" eSuperTypes="#//ModularEnvironment/ManagementServices/MSEPropertyAdditionSetter">
@@ -71,9 +72,17 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="CombinedAdditions" eSuperTypes="#//ModularEnvironment/ManagementServices/MSEPropertyAdditionContainer">
         <eStructuralFeatures xsi:type="ecore:EReference" name="msepropertyaddition"
-            upperBound="-1" eType="#//ModularEnvironment/ManagementServices/MSEPropertyAddition"
+            upperBound="-1" eType="#//ModularEnvironment/ManagementServices/MSEPropertyAdditionContainer"
             containment="true"/>
       </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="MSECombinedAdditionSetter" eSuperTypes="#//ModularEnvironment/ManagementServices/AdditionSetter">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="combinedadditions"
+            lowerBound="1" eType="#//ModularEnvironment/ManagementServices/CombinedAdditions"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="msepropertyadditionsetter"
+            upperBound="-1" eType="#//ModularEnvironment/ManagementServices/MSEPropertyAdditionSetter"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="AdditionSetter" abstract="true"/>
       <eSubpackages name="AdapterServices" nsURI="edu.kit.ipd.sdq.Modularization.ManagementServices.AdapterServices"
           nsPrefix="AdapterServices">
         <eClassifiers xsi:type="ecore:EClass" name="DataMigrationAdapter" abstract="true"
@@ -152,6 +161,19 @@
               containment="true"/>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="transformationalConversion" eSuperTypes="#//ModularEnvironment/ManagementServices/AdapterServices/AdapatationConversion"/>
+        <eClassifiers xsi:type="ecore:EClass" name="BaseConnectedAdaptation" eSuperTypes="#//ModularEnvironment/ManagementServices/AdapterServices/AdaptationDescription">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="baseElement" eType="#//basic/Identifier"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="derivedelement" upperBound="-1"
+              eType="#//ModularEnvironment/ManagementServices/AdapterServices/DerivedElement"
+              containment="true"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="DerivedElement">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedElement"
+              lowerBound="1" eType="#//basic/Identifier"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="adapatationconversion"
+              lowerBound="1" eType="#//ModularEnvironment/ManagementServices/AdapterServices/AdapatationConversion"
+              containment="true"/>
+        </eClassifiers>
       </eSubpackages>
     </eSubpackages>
   </eSubpackages>
@@ -163,7 +185,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SimModuleDescription" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="simulationDescription"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          unsettable="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="simulationtimeinformation"
           lowerBound="1" eType="#//ModularSimulation/SimulationTimeInformation" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataspecificationcontainer"
@@ -233,8 +256,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Unit" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="basedatatype" lowerBound="1"
           eType="#//DataRepresentation/DataType"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitShortForm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="unitrange" eType="#//DataRepresentation/UnitRange"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitSymbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//DataRepresentation/Range"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="unittypecontainer" eType="#//DataRepresentation/UnitTypeContainer"
           eOpposite="#//DataRepresentation/UnitTypeContainer/unit"/>
@@ -242,8 +265,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="UnitTypeContainer" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="unit" upperBound="-1"
           eType="#//DataRepresentation/Unit" containment="true" eOpposite="#//DataRepresentation/Unit/unittypecontainer"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unitSymbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UnitRange">
+    <eClassifiers xsi:type="ecore:EClass" name="Range">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="from" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="to" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
@@ -262,6 +286,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseValueType" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="range" eType="#//DataRepresentation/Range"
+          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CombinedDataType" eSuperTypes="#//DataRepresentation/DataType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" upperBound="-1"
@@ -279,17 +305,13 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="referencedObjectclass"
           eType="#//DataRepresentation/ProvidedObjectClass"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="requiredProperty">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredProperty" lowerBound="1"
-          eType="#//DataRepresentation/Property" containment="true"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SimulationData">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedobjectclass"
-          upperBound="-1" eType="#//DataRepresentation/ProvidedObjectClass" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="objectinstance" upperBound="-1"
-          eType="#//DataRepresentation/ObjectInstance" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredproperty" upperBound="-1"
-          eType="#//DataRepresentation/requiredProperty" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredProperties" eType="#//DataRepresentation/requiredProperties"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="instancedobjects" eType="#//DataRepresentation/InstancedObjects"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectclassdefinitions"
+          eType="#//DataRepresentation/ObjectClassDefinitions" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EnumType" eSuperTypes="#//DataRepresentation/DataType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="enumlabel" upperBound="-1"
@@ -300,6 +322,19 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="literalValue" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="requiredProperties" eSuperTypes="#//basic/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedRequiredProperty"
+          lowerBound="1" upperBound="-1" eType="#//DataRepresentation/Property" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InstancedObjects">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectinstance" lowerBound="1"
+          upperBound="-1" eType="#//DataRepresentation/ObjectInstance" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectClassDefinitions">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedobjectclass"
+          lowerBound="1" upperBound="-1" eType="#//DataRepresentation/ProvidedObjectClass"
+          containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="BasicADLModelling" nsURI="edu.kit.ipd.sdq.Modularization.BasicADLModelling"
@@ -391,10 +426,10 @@
           eType="#//ModularSimulation/SimModule"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="requiredDataMapping" eSuperTypes="#//basic/Identifier">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="referencedObjectClass"
-          lowerBound="1" eType="#//DataRepresentation/ProvidedObjectClass"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requireddProperty" lowerBound="1"
-          eType="#//DataRepresentation/requiredProperty"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="targetObjectClass" lowerBound="1"
+          eType="#//DataRepresentation/ProvidedObjectClass"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredProperty" lowerBound="1"
+          eType="#//DataRepresentation/Property"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetProperty" lowerBound="1"
           eType="#//DataRepresentation/Property"/>
     </eClassifiers>
@@ -416,9 +451,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="AdditionEnhancedProperty">
       <eStructuralFeatures xsi:type="ecore:EReference" name="property" lowerBound="1"
           eType="#//DataRepresentation/Property"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="additionSetter" upperBound="-1"
-          eType="#//ModularEnvironment/ManagementServices/MSEPropertyAdditionSetter"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="additionsetter" upperBound="-1"
+          eType="#//ModularEnvironment/ManagementServices/AdditionSetter" containment="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
