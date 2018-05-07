@@ -366,6 +366,7 @@
             containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="postcondition" upperBound="-1"
             eType="#//DataRepresentation/OperationModel/Postcondition" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="returnType" eType="#//DataRepresentation/DataTypes/DataTypeSpecification"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="operationExecutionEffect">
         <eStructuralFeatures xsi:type="ecore:EReference" name="executioneffectondata"
@@ -381,8 +382,8 @@
             iD="true"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="basedatatype" lowerBound="1"
-            eType="#//DataRepresentation/DataTypes/BaseDataType"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="dataType" lowerBound="1"
+            eType="#//DataRepresentation/DataTypes/DataTypeSpecification"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Precondition">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
@@ -477,11 +478,12 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="enumtype" lowerBound="1"
             eType="#//DataRepresentation/DataTypes/EnumType"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="BasicTypedData">
+      <eClassifiers xsi:type="ecore:EClass" name="BasicTypedData" eSuperTypes="#//DataRepresentation/DataSpecification/GeneralTypedData">
         <eStructuralFeatures xsi:type="ecore:EReference" name="basedatatype" lowerBound="1"
             eType="#//DataRepresentation/DataTypes/BaseDataType"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="GeneralTypedData" eSuperTypes="#//DataRepresentation/DataSpecification/Data"/>
+      <eClassifiers xsi:type="ecore:EClass" name="GeneralTypedData" abstract="true"
+          eSuperTypes="#//DataRepresentation/DataSpecification/Data"/>
       <eClassifiers xsi:type="ecore:EClass" name="UnitTypedData" eSuperTypes="#//DataRepresentation/DataSpecification/GeneralTypedData">
         <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1"
             eType="#//DataRepresentation/DataTypes/Unit"/>
