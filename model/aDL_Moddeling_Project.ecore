@@ -375,6 +375,8 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="executionEffectOnData">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="effect" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="data" lowerBound="1"
+            eType="#//DataRepresentation/DataSpecification/Data"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="OperationParameterDefinition">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifiingName" lowerBound="1"
@@ -513,7 +515,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="onLevelAssembableEntities"
           upperBound="-1" eType="#//ModularSimulationAssembly/AssembableEntity" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="assembledSimulationVisibleData"
-          eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AdditionEnhanced"/>
+          upperBound="-1" eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AdditionEnhanced"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Connector" eSuperTypes="#//basic/Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="generalSimulationFunction" eSuperTypes="#//DataRepresentation/OperationModel/Operation"/>
@@ -584,6 +586,8 @@
             upperBound="-1" eType="#//DataRepresentation/ObjectInstance"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="requireddataset" eType="#//ModularSimulationAssembly/AssemblyConnections/RequiredDataSet"
             containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedInformation"
+            upperBound="-1" eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AdditionEnhanced"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EEnum" name="FunctionMappingModus">
         <eLiterals name="PassThrough"/>
@@ -620,6 +624,8 @@
             eType="#//DataRepresentation/requiredDataEntry"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="targetProvidedData"
             lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/MappableData"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providingSimAssemblyEntityConnection"
+            lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyConnections/ProvidedRequiredConnection"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="RequiredDataSet">
         <eStructuralFeatures xsi:type="ecore:EReference" name="requireddatamapping"
