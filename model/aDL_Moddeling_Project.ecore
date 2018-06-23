@@ -258,7 +258,7 @@
   </eSubpackages>
   <eSubpackages name="DataRepresentation" nsURI="edu.kit.ipd.sdq.Modularization.DataRepresentation"
       nsPrefix="DataRepresentation">
-    <eClassifiers xsi:type="ecore:EClass" name="ObjectClass" eSuperTypes="#//ModularEnvironment/ManagementServices/AdditionEnhanceableEntity">
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectClass" eSuperTypes="#//ModularEnvironment/ManagementServices/AdditionEnhanceableEntity #//DataRepresentation/requirable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="objectclassoperation"
           upperBound="-1" eType="#//DataRepresentation/ObjectClassOperation" containment="true"
           eOpposite="#//DataRepresentation/ObjectClassOperation/objectclass"/>
@@ -292,9 +292,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="objectclassdefinitions"
           eType="#//DataRepresentation/ObjectClassDefinitions" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="requiredData">
+    <eClassifiers xsi:type="ecore:EClass" name="requiredDataInterface">
       <eStructuralFeatures xsi:type="ecore:EReference" name="requireddataentry" lowerBound="1"
           upperBound="-1" eType="#//DataRepresentation/requiredDataEntry" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="purpose" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InstancedObjects" eSuperTypes="#//ModularEnvironment/ManagementServices/AdditionEnhanceableEntity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="objectinstance" lowerBound="1"
@@ -317,7 +318,7 @@
           lowerBound="1" eType="#//DataRepresentation/ObjectClassOperation" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SimulationData" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requireddata" eType="#//DataRepresentation/requiredData"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requireddata" eType="#//DataRepresentation/requiredDataInterface"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataToValueMap" instanceClassName="java.util.Map$Entry">
@@ -345,14 +346,25 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="data" lowerBound="1"
           upperBound="-1" eType="#//DataRepresentation/DataSpecification/Data" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="requiredDataEntry" eSuperTypes="#//basic/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="data" lowerBound="1"
-          eType="#//DataRepresentation/DataSpecification/Data" containment="true"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="requiredDataEntry" abstract="true"
+        eSuperTypes="#//basic/Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="AvailableOperationsDefinition">
       <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
           upperBound="-1" eType="#//DataRepresentation/OperationModel/Operation" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectOrientedViewRequiredEntry" eSuperTypes="#//DataRepresentation/requiredDataEntry">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredObjectClass"
+          lowerBound="1" eType="#//DataRepresentation/ObjectClass" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UnstructuredViewRequiredEntry" eSuperTypes="#//DataRepresentation/requiredDataEntry">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="data" lowerBound="1"
+          eType="#//DataRepresentation/DataSpecification/Data" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredReferenceProperty" eSuperTypes="#//DataRepresentation/DataSpecification/Data">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="objectorientedviewrequiredentry"
+          lowerBound="1" eType="#//DataRepresentation/ObjectOrientedViewRequiredEntry"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="requirable" abstract="true"/>
     <eSubpackages name="OperationModel" nsURI="edu.kit.ipd.sdq.Modularization.DataRepresentation.OperationModel"
         nsPrefix="OperationModel">
       <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//basic/Entity">
@@ -494,7 +506,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="combineddatatype" lowerBound="1"
             eType="#//DataRepresentation/DataTypes/CombinedDataType"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Data" abstract="true" eSuperTypes="#//ModularEnvironment/ManagementServices/AdditionEnhanceableEntity">
+      <eClassifiers xsi:type="ecore:EClass" name="Data" abstract="true" eSuperTypes="#//ModularEnvironment/ManagementServices/AdditionEnhanceableEntity #//DataRepresentation/requirable">
         <eStructuralFeatures xsi:type="ecore:EReference" name="semanticType" eType="#//DataRepresentation/DataSpecification/SemanticType"
             containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" lowerBound="1"
@@ -539,6 +551,10 @@
         eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="usedgeneralsimulationfunction"
           upperBound="-1" eType="#//ModularSimulationAssembly/generalSimulationFunction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="simulationprovidesinterface"
+          eType="#//ModularSimulationAssembly/SimulationProvidesInterface" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="simulationrequiresinterface"
+          eType="#//ModularSimulationAssembly/SimulationRequiresInterface" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CombinedAssemblyEntity" eSuperTypes="#//basic/Entity #//ModularSimulationAssembly/AssembableEntity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="assembly" eType="#//ModularSimulationAssembly/Assembly"
@@ -556,6 +572,14 @@
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="coordinatorentity" lowerBound="1"
           eType="#//ModularEnvironment/CoordinatorEntity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimulationProvidesInterface" eSuperTypes="#//basic/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="additionenhanced" upperBound="-1"
+          eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AdditionEnhanced"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimulationRequiresInterface" eSuperTypes="#//basic/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requireddataentry" upperBound="-1"
+          eType="#//DataRepresentation/requiredDataEntry"/>
     </eClassifiers>
     <eSubpackages name="AssemblyConnections" nsURI="edu.kit.ipd.sdq.Modularization.Assembly.AssemblyConnections"
         nsPrefix="AssemblyConnections">
@@ -582,12 +606,13 @@
             eType="#//ModularSimulationAssembly/SimulationAssemblyEntity"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ProvidedRequiredConnection" abstract="true">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="providedobjectInstances"
-            upperBound="-1" eType="#//DataRepresentation/ObjectInstance"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requireddataset" eType="#//ModularSimulationAssembly/AssemblyConnections/RequiredDataSet"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providingInterface"
+            lowerBound="1" eType="#//ModularSimulationAssembly/SimulationProvidesInterface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiringInterface"
+            lowerBound="1" eType="#//ModularSimulationAssembly/SimulationRequiresInterface"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredProvidingDataMapping"
+            upperBound="-1" eType="#//ModularSimulationAssembly/AssemblyConnections/RequiredDataMappingConnection"
             containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="providedInformation"
-            upperBound="-1" eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AdditionEnhanced"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EEnum" name="FunctionMappingModus">
         <eLiterals name="PassThrough"/>
@@ -619,18 +644,36 @@
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="functionMappingModus"
             lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyConnections/FunctionMappingModus"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="RequiredDataMapping" eSuperTypes="#//basic/Identifier">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredData" lowerBound="1"
-            eType="#//DataRepresentation/requiredDataEntry"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="targetProvidedData"
-            lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/MappableData"/>
+      <eClassifiers xsi:type="ecore:EClass" name="RequiredDataMappingConnection" abstract="true"
+          eSuperTypes="#//basic/Identifier">
         <eStructuralFeatures xsi:type="ecore:EReference" name="providingSimAssemblyEntityConnection"
             lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyConnections/ProvidedRequiredConnection"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="RequiredDataSet">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requireddatamapping"
-            upperBound="-1" eType="#//ModularSimulationAssembly/AssemblyConnections/RequiredDataMapping"
+      <eClassifiers xsi:type="ecore:EClass" name="ObjectOrientedViewRequiredDataMapping"
+          eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/RequiredDataMappingConnection">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="additionenchancedobjectclass"
+            lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AdditionEnchancedObjectClass"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredprovidedclasspropertiesmapping"
+            upperBound="-1" eType="#//ModularSimulationAssembly/AssemblyConnections/RequiredProvidedClassPropertiesMapping"
             containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requireddataentry"
+            lowerBound="1" eType="#//DataRepresentation/requiredDataEntry"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requirable" eType="#//DataRepresentation/requirable"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="UnstructuredViewRequiredDataMapping"
+          eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/RequiredDataMappingConnection">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="mappabledata" lowerBound="1"
+            eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/MappableData"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requireddataentry"
+            lowerBound="1" eType="#//DataRepresentation/requiredDataEntry"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requirable" eType="#//DataRepresentation/requirable"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="RequiredProvidedClassPropertiesMapping">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="additionenhanceddata"
+            lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AdditionEnhancedData"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requireddataentry"
+            lowerBound="1" eType="#//DataRepresentation/requiredDataEntry"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requirable" eType="#//DataRepresentation/requirable"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="AssemblyAdditionEnhancement" nsURI="edu.kit.ipd.sdq.Modularization.Assembly.AdditionEnhancement"
