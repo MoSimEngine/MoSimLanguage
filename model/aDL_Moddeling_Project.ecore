@@ -276,7 +276,7 @@
     </eClassifiers>
     <eSubpackages name="OperationModel" nsURI="edu.kit.ipd.sdq.Modularization.DataRepresentation.OperationModel"
         nsPrefix="OperationModel">
-      <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable #//Adaptation/Adaptable #//basic/NamedElement">
+      <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//basic/SemanticEntity #//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable #//Adaptation/Adaptable">
         <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" upperBound="-1"
             eType="#//DataRepresentation/OperationModel/Precondition" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
@@ -289,12 +289,11 @@
             containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="exception" upperBound="-1"
             eType="#//DataRepresentation/OperationModel/Exception"/>
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="semantics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="operationExecutionEffect">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="effect" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="OperationParameter" eSuperTypes="#//basic/SemanticEntity #//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable">
+      <eClassifiers xsi:type="ecore:EClass" name="OperationParameter" eSuperTypes="#//basic/NamedElement #//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="dataType" lowerBound="1"
