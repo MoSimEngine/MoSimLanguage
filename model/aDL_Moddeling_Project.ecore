@@ -21,6 +21,8 @@
           eType="#//ModularEnvironment/AnnotationInterface" containment="true" eOpposite="#//ModularEnvironment/AnnotationInterface/coordinatorentity"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="adapterservice" upperBound="-1"
           eType="#//Adaptation/AdapterService" containment="true" eOpposite="#//Adaptation/AdapterService/coordinator"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exceptioncontainer" upperBound="-1"
+          eType="#//DataRepresentation/OperationModel/ExceptionContainer" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MSEServiceInterface" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="managementservicefunction"
@@ -29,13 +31,13 @@
           eOpposite="#//ModularEnvironment/Coordinator/mseserviceinterface"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CoordinatorEntity" abstract="true"/>
-    <eClassifiers xsi:type="ecore:EClass" name="AnnotationInterface" eSuperTypes="#//basic/Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationInterface" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="informationType" lowerBound="1"
           eType="#//ModularEnvironment/AnnotatableInformationTypes"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="propertyaddition" upperBound="-1"
-          eType="#//ModularEnvironment/ManagementServices/Annotation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="coordinatorentity" eType="#//ModularEnvironment/Coordinator"
           eOpposite="#//ModularEnvironment/Coordinator/additioninterface"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" upperBound="-1"
+          eType="#//ModularEnvironment/ManagementServices/Annotation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="AnnotatableInformationTypes">
       <eLiterals name="ObjectClass"/>
@@ -43,7 +45,7 @@
       <eLiterals name="Operation" value="2"/>
       <eLiterals name="OperationParameter" value="3"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AnnotationContainer">
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationContainer" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="coordinator" eType="#//ModularEnvironment/Coordinator"
           eOpposite="#//ModularEnvironment/Coordinator/annotationcontainer"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" upperBound="-1"
@@ -74,7 +76,7 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ManagementServiceFunction" eSuperTypes="#//DataRepresentation/OperationModel/Operation">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="printableDescription"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="managementservice"
             eType="#//ModularEnvironment/ManagementServices/ManagementService" eOpposite="#//ModularEnvironment/ManagementServices/ManagementService/managementservicefunction"/>
       </eClassifiers>
@@ -113,9 +115,8 @@
             eOpposite="#//ModularEnvironment/ManagementServices/AnnotationValue/selectableannotation"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="CombinedAnnotation" eSuperTypes="#//ModularEnvironment/ManagementServices/Annotation">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="msepropertyaddition"
-            lowerBound="2" upperBound="-1" eType="#//ModularEnvironment/ManagementServices/Annotation"
-            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" lowerBound="2"
+            upperBound="-1" eType="#//ModularEnvironment/ManagementServices/Annotation"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="CombinedAnnotationSetter" eSuperTypes="#//ModularEnvironment/ManagementServices/AnnotationSetter">
         <eStructuralFeatures xsi:type="ecore:EReference" name="combinedadditions"
@@ -179,13 +180,12 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="#//basic/Identifier #//basic/NamedElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="SemanticEntity" abstract="true" eSuperTypes="#//basic/Entity">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="semantics" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="semantics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="DataRepresentation" nsURI="edu.kit.ipd.sdq.Modularization.DataRepresentation"
       nsPrefix="DataRepresentation">
-    <eClassifiers xsi:type="ecore:EClass" name="ObjectClass" eSuperTypes="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable #//Adaptation/Adaptable #//basic/SemanticEntity">
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectClass" eSuperTypes="#//basic/SemanticEntity #//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable #//Adaptation/Adaptable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="objectclassoperation"
           upperBound="-1" eType="#//DataRepresentation/ObjectClassOperation" containment="true"
           eOpposite="#//DataRepresentation/ObjectClassOperation/objectclass"/>
@@ -205,7 +205,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="objectclass" eType="#//DataRepresentation/ObjectClass"
           eOpposite="#//DataRepresentation/ObjectClass/objectclassoperation"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ObjectInstance" eSuperTypes="#//basic/Entity #//Adaptation/Adaptable">
+    <eClassifiers xsi:type="ecore:EClass" name="ObjectInstance" eSuperTypes="#//basic/SemanticEntity #//Adaptation/Adaptable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstantiatedObjectClass"
           lowerBound="1" eType="#//DataRepresentation/ObjectClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ObjectAssignment" upperBound="-1"
@@ -276,7 +276,7 @@
     </eClassifiers>
     <eSubpackages name="OperationModel" nsURI="edu.kit.ipd.sdq.Modularization.DataRepresentation.OperationModel"
         nsPrefix="OperationModel">
-      <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//basic/Entity #//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable #//Adaptation/Adaptable">
+      <eClassifiers xsi:type="ecore:EClass" name="Operation" abstract="true" eSuperTypes="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable #//Adaptation/Adaptable #//basic/NamedElement">
         <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" upperBound="-1"
             eType="#//DataRepresentation/OperationModel/Precondition" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
@@ -288,12 +288,13 @@
             upperBound="-1" eType="#//DataRepresentation/OperationModel/operationExecutionEffect"
             containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="exception" upperBound="-1"
-            eType="#//DataRepresentation/OperationModel/Exception" containment="true"/>
+            eType="#//DataRepresentation/OperationModel/Exception"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="semantics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="operationExecutionEffect">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="effect" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="OperationParameter" eSuperTypes="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable #//basic/Entity">
+      <eClassifiers xsi:type="ecore:EClass" name="OperationParameter" eSuperTypes="#//basic/SemanticEntity #//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="dataType" lowerBound="1"
@@ -307,11 +308,17 @@
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Exception"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Exception" eSuperTypes="#//basic/SemanticEntity">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="message" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ExceptionContainer" eSuperTypes="#//basic/SemanticEntity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="exception" upperBound="-1"
+            eType="#//DataRepresentation/OperationModel/Exception" containment="true"/>
+      </eClassifiers>
     </eSubpackages>
     <eSubpackages name="DataTypes" nsURI="edu.kit.ipd.sdq.Modularization.DataRepresentation.DataTypes"
         nsPrefix="DataTypes">
-      <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//Adaptation/Adaptable #//basic/SemanticEntity"/>
+      <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//basic/SemanticEntity #//Adaptation/Adaptable"/>
       <eClassifiers xsi:type="ecore:EClass" name="EnumLiteral">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="literalName" lowerBound="1"
             eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -372,12 +379,17 @@
         <eLiterals name="LONG" value="4"/>
         <eLiterals name="DOUBLE" value="5"/>
         <eLiterals name="CHAR" value="6"/>
+        <eLiterals name="FLOAT" value="7"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ClassicalDataType" abstract="true"
           eSuperTypes="#//DataRepresentation/DataTypes/DataType"/>
       <eClassifiers xsi:type="ecore:EClass" name="ObjectClassReferenceDataType" eSuperTypes="#//DataRepresentation/DataTypes/ClassicalDataType">
         <eStructuralFeatures xsi:type="ecore:EReference" name="objectclass" lowerBound="1"
             eType="#//DataRepresentation/ObjectClass"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="DescriptiveDataType" eSuperTypes="#//DataRepresentation/DataTypes/DataType">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="DataSpecification" nsURI="edu.kit.ipd.sdq.Modularization.DataRepresentation.DataSpecification"
@@ -408,7 +420,7 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="combineddatatype" lowerBound="1"
             eType="#//DataRepresentation/DataTypes/CombinedDataType"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="Data" abstract="true" eSuperTypes="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable #//Adaptation/Adaptable #//basic/SemanticEntity">
+      <eClassifiers xsi:type="ecore:EClass" name="Data" abstract="true" eSuperTypes="#//basic/SemanticEntity #//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanceable #//Adaptation/Adaptable">
         <eStructuralFeatures xsi:type="ecore:EReference" name="semanticType" eType="#//DataRepresentation/DataSpecification/SemanticType"
             containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" lowerBound="1"
@@ -629,7 +641,7 @@
             lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/AnnotationEnhanced"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AnnotationEnhanced" abstract="true"
-          eSuperTypes="#//ModularSimulationAssembly/AssemblyAdditionEnhancement/MappableData #//basic/SemanticEntity #//Adaptation/Adaptable">
+          eSuperTypes="#//basic/SemanticEntity #//ModularSimulationAssembly/AssemblyAdditionEnhancement/MappableData #//Adaptation/Adaptable">
         <eStructuralFeatures xsi:type="ecore:EReference" name="annotationsetter" upperBound="-1"
             eType="#//ModularEnvironment/ManagementServices/AnnotationSetter" containment="true"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="referencedAnnotationInterface"
