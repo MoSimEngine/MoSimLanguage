@@ -142,7 +142,7 @@
   </eSubpackages>
   <eSubpackages name="BasicSimulations" nsURI="edu.kit.ipd.sdq.Modularization.BasicSimulations"
       nsPrefix="BasicSimulations">
-    <eClassifiers xsi:type="ecore:EClass" name="SimModule" eSuperTypes="#//basic/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="BasicSimulation" eSuperTypes="#//basic/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="simmoduledescription"
           lowerBound="1" eType="#//BasicSimulations/SimModuleDescription" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataTypeContainer" lowerBound="1"
@@ -460,45 +460,42 @@
   <eSubpackages name="ModularSimulationAssembly" nsURI="edu.kit.ipd.sdq.Modularization.Assembly"
       nsPrefix="ModularSimulationAssembly">
     <eClassifiers xsi:type="ecore:EClass" name="SimulationAssembly" eSuperTypes="#//ModularSimulationAssembly/Assembly">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="onLevelAssembableComponentDefinition"
-          upperBound="-1" eType="#//ModularSimulationAssembly/AssembableComponent"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="assembledSimulationVisibleData"
-          upperBound="-1" eType="#//ModularSimulationAssembly/AnnotationEnhancement/AnnotationEnhanced"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="adaptationdefinitionrepository"
           upperBound="-1" eType="#//Adaptation/AdaptationDefinitionRepository" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="interfacerepository"
           eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceRepository"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interfacerequired" upperBound="-1"
-          eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceRequired"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceprovided" upperBound="-1"
-          eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceProvided"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="assembledsimulationcomponent"
-          eType="#//ModularSimulationAssembly/AssembledSimulationComponent" eOpposite="#//ModularSimulationAssembly/AssembledSimulationComponent/simulationassembly"/>
+          eType="#//ModularSimulationAssembly/AssembledSimulationComponent" eOpposite="#//ModularSimulationAssembly/AssembledSimulationComponent/encapsulatedSimulationAssembly"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assembablecomponent"
+          upperBound="-1" eType="#//ModularSimulationAssembly/AssembableComponent"
+          containment="true" eOpposite="#//ModularSimulationAssembly/AssembableComponent/simulationassembly"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interfacemapping" upperBound="-1"
+          eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceMapping"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Assembly" abstract="true" eSuperTypes="#//basic/SemanticEntity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="connection" upperBound="-1"
           eType="#//ModularSimulationAssembly/AssemblyConnections/Connection" containment="true"
           eOpposite="#//ModularSimulationAssembly/AssemblyConnections/Connection/assembly"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="assembly" eType="#//ModularSimulationAssembly/Assembly"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BasicSimulationComponent" eSuperTypes="#//basic/Entity #//ModularSimulationAssembly/SimulationComponent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="simmodule" lowerBound="1"
-          eType="#//BasicSimulations/SimModule" eOpposite="#//BasicSimulations/SimModule/basicsimulationcomponent"/>
+          eType="#//BasicSimulations/BasicSimulation" eOpposite="#//BasicSimulations/BasicSimulation/basicsimulationcomponent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AssembableComponent" abstract="true"
         eSuperTypes="#//basic/SemanticEntity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="componentconnector" lowerBound="1"
-          eType="#//ModularSimulationAssembly/AssemblyConnections/ComponentConnector"
+          upperBound="-1" eType="#//ModularSimulationAssembly/AssemblyConnections/ComponentConnector"
           containment="true" eOpposite="#//ModularSimulationAssembly/AssemblyConnections/ComponentConnector/assembablecomponent"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="adapterservice" upperBound="-1"
           eType="#//Adaptation/AdapterServices/AdapterService" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="adapterdescriptionattachment"
           upperBound="-1" eType="#//Adaptation/AdapterDescriptionAttachment" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="simulationassembly" lowerBound="1"
+          eType="#//ModularSimulationAssembly/SimulationAssembly" eOpposite="#//ModularSimulationAssembly/SimulationAssembly/assembablecomponent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AssembledSimulationComponent" eSuperTypes="#//basic/Entity #//ModularSimulationAssembly/SimulationComponent">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="simulationassembly" lowerBound="1"
-          eType="#//ModularSimulationAssembly/SimulationAssembly" eOpposite="#//ModularSimulationAssembly/SimulationAssembly/assembledsimulationcomponent"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedSimulationAssembly"
+          lowerBound="1" eType="#//ModularSimulationAssembly/SimulationAssembly" eOpposite="#//ModularSimulationAssembly/SimulationAssembly/assembledsimulationcomponent"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="MSEComponent" eSuperTypes="#//basic/Entity #//ModularSimulationAssembly/AssembableComponent">
       <eStructuralFeatures xsi:type="ecore:EReference" name="mse_entity" lowerBound="1"
@@ -522,16 +519,6 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="assembly" lowerBound="1"
             eType="#//ModularSimulationAssembly/Assembly" eOpposite="#//ModularSimulationAssembly/Assembly/connection"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="ReqProvInterfaceConnection" eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/ComponentInterfaceConnection">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="providingComponent"
-            lowerBound="1" eType="#//ModularSimulationAssembly/SimulationComponent"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requieringComponent"
-            lowerBound="1" eType="#//ModularSimulationAssembly/SimulationComponent"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceprovided"
-            lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceProvided"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="interfacerequired"
-            lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceRequired"/>
-      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ComponentConnector" abstract="true"
           eSuperTypes="#//basic/Entity">
         <eStructuralFeatures xsi:type="ecore:EReference" name="assembablecomponent"
@@ -542,24 +529,6 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="SimulationComponentConnector" eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/ComponentConnector"/>
       <eClassifiers xsi:type="ecore:EClass" name="MSEComponentConnector" eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/ComponentConnector"/>
-      <eClassifiers xsi:type="ecore:EClass" name="ComponentInterfaceConnection" abstract="true"
-          eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/Connection"/>
-      <eClassifiers xsi:type="ecore:EClass" name="ProvidingDelegationConnection" eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/ComponentInterfaceConnection">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceprovided"
-            lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceProvided"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="simulationassembly"
-            lowerBound="1" eType="#//ModularSimulationAssembly/SimulationAssembly"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="providingComponent"
-            lowerBound="1" eType="#//ModularSimulationAssembly/SimulationComponent"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="RequiringDelegationConnection" eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/ComponentInterfaceConnection">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="interfacerequired"
-            lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceRequired"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="simulationassembly"
-            lowerBound="1" eType="#//ModularSimulationAssembly/SimulationAssembly"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requieringComponent"
-            lowerBound="1" eType="#//ModularSimulationAssembly/SimulationComponent"/>
-      </eClassifiers>
       <eSubpackages name="ComponentWiring" nsURI="edu.kit.ipd.sdq.Modularization.Assembly.AssemblyConnections.ComponentWiring"
           nsPrefix="AssemblyComponentWiring">
         <eClassifiers xsi:type="ecore:EClass" name="MSEExchangeWiring" eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/WiringConnection">
@@ -598,7 +567,38 @@
         </eClassifiers>
       </eSubpackages>
       <eSubpackages name="ComponentInterfaceConnection" nsURI="edu.kit.ipd.sdq.Modularization.Assembly.AssemblyConnections.ComponentInterfaceConnection"
-          nsPrefix="ComponentInterfaceConnection"/>
+          nsPrefix="ComponentInterfaceConnection">
+        <eClassifiers xsi:type="ecore:EClass" name="RequiringDelegationConnection"
+            eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/ComponentInterfaceConnection/ComponentInterfaceConnection">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="interfacerequired"
+              lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceRequired"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="simulationassembly"
+              lowerBound="1" eType="#//ModularSimulationAssembly/SimulationAssembly"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="requieringComponent"
+              lowerBound="1" eType="#//ModularSimulationAssembly/SimulationComponent"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="ReqProvInterfaceConnection" eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/ComponentInterfaceConnection/ComponentInterfaceConnection">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="providingComponent"
+              lowerBound="1" eType="#//ModularSimulationAssembly/SimulationComponent"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="requieringComponent"
+              lowerBound="1" eType="#//ModularSimulationAssembly/SimulationComponent"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceprovided"
+              lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceProvided"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="interfacerequired"
+              lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceRequired"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="ProvidingDelegationConnection"
+            eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/ComponentInterfaceConnection/ComponentInterfaceConnection">
+          <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceprovided"
+              lowerBound="1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceProvided"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="simulationassembly"
+              lowerBound="1" eType="#//ModularSimulationAssembly/SimulationAssembly"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="providingComponent"
+              lowerBound="1" eType="#//ModularSimulationAssembly/SimulationComponent"/>
+        </eClassifiers>
+        <eClassifiers xsi:type="ecore:EClass" name="ComponentInterfaceConnection"
+            abstract="true" eSuperTypes="#//ModularSimulationAssembly/AssemblyConnections/Connection"/>
+      </eSubpackages>
     </eSubpackages>
     <eSubpackages name="AnnotationEnhancement" nsURI="edu.kit.ipd.sdq.Modularization.Assembly.AnnotationEnhancement"
         nsPrefix="AnnotationEnhancement">
@@ -684,6 +684,9 @@
           <eStructuralFeatures xsi:type="ecore:EReference" name="interfacerepository"
               eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceRepository"
               eOpposite="#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceRepository/assemblyinterface"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceoperation"
+              upperBound="-1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceOperation"
+              containment="true"/>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="InterfaceParameter" eSuperTypes="#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceInformation">
           <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"/>
@@ -714,6 +717,9 @@
               containment="true"/>
           <eStructuralFeatures xsi:type="ecore:EReference" name="simulationcomonent"
               eType="#//ModularSimulationAssembly/SimulationComponent"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="requieringOperationMapping"
+              upperBound="-1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/OperationToInterfaceMapping"
+              containment="true"/>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvided" eSuperTypes="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceMapping">
           <eStructuralFeatures xsi:type="ecore:EReference" name="providinginterfaceobjectclassmapping"
@@ -721,6 +727,9 @@
               containment="true"/>
           <eStructuralFeatures xsi:type="ecore:EReference" name="simulationcomonent"
               eType="#//ModularSimulationAssembly/SimulationComponent"/>
+          <eStructuralFeatures xsi:type="ecore:EReference" name="providingOperationMapping"
+              upperBound="-1" eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/OperationToInterfaceMapping"
+              containment="true"/>
         </eClassifiers>
         <eClassifiers xsi:type="ecore:EClass" name="InterfaceMapping" abstract="true"
             eSuperTypes="#//basic/Identifier">
