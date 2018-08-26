@@ -155,8 +155,8 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="DataRepresentation" basePackage="aDL_Moddeling_Project"
         disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation">
-      <nestedGenPackages prefix="OperationModel" basePackage="aDL_Moddeling_Project.DataRepresentation"
-          disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation/OperationModel">
+      <nestedGenPackages prefix="OperationModel" disposableProviderFactory="true"
+          ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation/OperationModel">
         <genClasses image="false" ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/OperationModel/Operation">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/OperationModel/Operation/precondition"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/OperationModel/Operation/parameters"/>
@@ -189,8 +189,7 @@
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/OperationModel/ExceptionContainer/exception"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages prefix="DataTypes" basePackage="aDL_Moddeling_Project.DataRepresentation"
-          disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation/DataTypes">
+      <nestedGenPackages prefix="DataTypes" disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation/DataTypes">
         <genEnums typeSafeEnumCompatible="false" ecoreEnum="aDL_Moddeling_Project.ecore#//DataRepresentation/DataTypes/PrimitiveDataType">
           <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//DataRepresentation/DataTypes/PrimitiveDataType/BOOL"/>
           <genEnumLiterals ecoreEnumLiteral="aDL_Moddeling_Project.ecore#//DataRepresentation/DataTypes/PrimitiveDataType/BYTE"/>
@@ -258,8 +257,8 @@
               ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/DataTypes/DataTypeMap/valueType"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages prefix="DataSpecification" basePackage="aDL_Moddeling_Project.DataRepresentation"
-          disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation/DataSpecification">
+      <nestedGenPackages prefix="DataSpecification" disposableProviderFactory="true"
+          ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation/DataSpecification">
         <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/DataSpecification/CollectionTypedData">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/DataSpecification/CollectionTypedData/datatypecollection"/>
@@ -294,8 +293,8 @@
               ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/DataSpecification/MapTypedData/datatypemap"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages prefix="ObjectInstances" basePackage="aDL_Moddeling_Project.DataRepresentation"
-          disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation/ObjectInstances">
+      <nestedGenPackages prefix="ObjectInstances" disposableProviderFactory="true"
+          ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation/ObjectInstances">
         <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/ObjectInstances/DataToValueMap">
           <genFeatures createChild="false" ecoreFeature="ecore:EAttribute aDL_Moddeling_Project.ecore#//DataRepresentation/ObjectInstances/DataToValueMap/value"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -318,8 +317,8 @@
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/ObjectInstances/ObjectInstance/enumValueSetting"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages prefix="SimulationData" basePackage="aDL_Moddeling_Project.DataRepresentation"
-          disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation/SimulationData">
+      <nestedGenPackages prefix="SimulationData" disposableProviderFactory="true"
+          ecorePackage="aDL_Moddeling_Project.ecore#//DataRepresentation/SimulationData">
         <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//DataRepresentation/SimulationData/ObjectOrientedViewSimulationData">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/SimulationData/ObjectOrientedViewSimulationData/objectclass"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//DataRepresentation/SimulationData/ObjectOrientedViewSimulationData/objectinstance"/>
@@ -376,10 +375,6 @@
     <nestedGenPackages prefix="ModularSimulationAssembly" basePackage="aDL_Moddeling_Project"
         disposableProviderFactory="true" ecorePackage="aDL_Moddeling_Project.ecore#//ModularSimulationAssembly">
       <genClasses ecoreClass="aDL_Moddeling_Project.ecore#//ModularSimulationAssembly/SimulationAssembly">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularSimulationAssembly/SimulationAssembly/adaptationdefinitionrepository"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularSimulationAssembly/SimulationAssembly/interfacerepository"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference aDL_Moddeling_Project.ecore#//ModularSimulationAssembly/SimulationAssembly/assembledsimulationcomponent"/>
         <genFeatures children="true" createChild="true" propertySortChoices="true"

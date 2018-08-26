@@ -460,10 +460,6 @@
   <eSubpackages name="ModularSimulationAssembly" nsURI="edu.kit.ipd.sdq.Modularization.Assembly"
       nsPrefix="ModularSimulationAssembly">
     <eClassifiers xsi:type="ecore:EClass" name="SimulationAssembly" eSuperTypes="#//ModularSimulationAssembly/Assembly">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="adaptationdefinitionrepository"
-          upperBound="-1" eType="#//Adaptation/AdaptationDefinitionRepository" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interfacerepository"
-          eType="#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceRepository"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="assembledsimulationcomponent"
           eType="#//ModularSimulationAssembly/AssembledSimulationComponent" eOpposite="#//ModularSimulationAssembly/AssembledSimulationComponent/encapsulatedSimulationAssembly"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="assembablecomponent"
