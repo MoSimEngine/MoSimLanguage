@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xmi:id="_K29eUN9lEeiqwLD-l8XHHA" version="12.1.2.201804131029">
+  <semanticResources>model/ModularEnvironment.ecore</semanticResources>
+  <semanticResources>platform:/resource/ADL_Moddeling_Project/model/aDL_Moddeling_Project.ecore</semanticResources>
+  <semanticResources>platform:/resource/edu.kit.ipd.sdq.mosim.basic/model/basic.ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
+  <semanticResources>http://www.eclipse.org/emf/2003/XMLType</semanticResources>
+  <semanticResources>model/ModularEnvironment.genmodel</semanticResources>
+</viewpoint:DAnalysis>
