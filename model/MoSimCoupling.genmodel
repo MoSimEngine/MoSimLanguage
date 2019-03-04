@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/MoSimCoupling/src-gen" editDirectory="/MoSimCoupling.edit/src-gen"
+    editorDirectory="/MoSimCoupling.editor/src-gen" modelPluginID="MoSimCoupling"
+    modelName="MoSimCoupling" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/MoSimCoupling.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" editPluginID="MoSimCoupling.edit"
+    editorPluginID="MoSimCoupling.editor" operationReflection="true" importOrganizing="true">
+  <foreignModel>MoSimCoupling.ecore</foreignModel>
+  <genPackages prefix="MoSimCoupling" disposableProviderFactory="true" ecorePackage="MoSimCoupling.ecore#/">
+    <nestedGenPackages prefix="ModularEnvironment" disposableProviderFactory="true"
+        ecorePackage="MoSimCoupling.ecore#//ModularEnvironment">
+      <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Coordinator">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Coordinator/managementservice"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Coordinator/dataspecificationcontainer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Coordinator/annotationcontainer"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Coordinator/annotationinterface"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Coordinator/mseserviceinterface"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Coordinator/exceptioncontainer"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/MSE_Entity">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/MSE_Entity/msecomponent"/>
+      </genClasses>
+      <nestedGenPackages prefix="ManagementServices" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//ModularEnvironment/ManagementServices">
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementService">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementService/managementservice"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementService/msefacility"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementService/managementservicesupportentity"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementService/managementservicefunction"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementService/purpose"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementService/annotation"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementServiceSupportEntity">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementServiceSupportEntity/purpose"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementServiceFunction">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementServiceFunction/printableDescription"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/ManagementServiceFunction/managementservice"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/MSEServiceInterface">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/MSEServiceInterface/managementservicefunction"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/ManagementServices/MSEServiceInterface/coordinator"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Annotations" disposableProviderFactory="true" ecorePackage="MoSimCoupling.ecore#//ModularEnvironment/Annotations">
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotatableInformation">
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotatableInformation/ObjectClass"/>
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotatableInformation/Data"/>
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotatableInformation/Operation"/>
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotatableInformation/OperationParameter"/>
+        </genEnums>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/WritableAnnotation">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularEnvironment/Annotations/WritableAnnotation/contentRestrictionDescription"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/SelectableAnnotation">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/SelectableAnnotation/annotationvalue"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/WritableAnnotationSetter">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/WritableAnnotationSetter/writableannotation"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularEnvironment/Annotations/WritableAnnotationSetter/valueContent"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/MultipleSettableAnnotation"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/ExclusiveSettableAnnotation"/>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/Annotation">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularEnvironment/Annotations/Annotation/OnlyusedInDefintion"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/Annotation/annotationcontainer"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/MultipleSelectionAnnotationSetter">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/MultipleSelectionAnnotationSetter/selectedValues"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/MultipleSelectionAnnotationSetter/multiplesettableannotation"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/ExclusiveSelectionAnnotationSetter">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/ExclusiveSelectionAnnotationSetter/selectedValue"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/ExclusiveSelectionAnnotationSetter/exclusivesettableannotation"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/CombinedAnnotation">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/CombinedAnnotation/annotation"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotationSetter"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotationValue">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotationValue/selectableannotation"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/CombinedAnnotationSetter">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/CombinedAnnotationSetter/annotationsetter"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/CombinedAnnotationSetter/combinedannotation"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotationInterface">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotationInterface/informationType"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotationInterface/annotation"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotationInterface/coordinator"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotationContainer">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotationContainer/coordinator"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularEnvironment/Annotations/AnnotationContainer/annotation"/>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="SimulationFeature" disposableProviderFactory="true"
+        ecorePackage="MoSimCoupling.ecore#//SimulationFeature">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="MoSimCoupling.ecore#//SimulationFeature/TimeType">
+        <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//SimulationFeature/TimeType/DiscreteEvent"/>
+        <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//SimulationFeature/TimeType/Discrete"/>
+        <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//SimulationFeature/TimeType/Continuous"/>
+      </genEnums>
+      <genClasses ecoreClass="MoSimCoupling.ecore#//SimulationFeature/SimulationFeature">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//SimulationFeature/SimulationFeature/simulationDescription"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//SimulationFeature/SimulationFeature/dataTypeContainer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//SimulationFeature/SimulationFeature/basicsimulationcomponent"/>
+      </genClasses>
+      <genClasses ecoreClass="MoSimCoupling.ecore#//SimulationFeature/SimulationDescription">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//SimulationFeature/SimulationDescription/simulationDescription"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//SimulationFeature/SimulationDescription/simulationtimeinformation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//SimulationFeature/SimulationDescription/simulationdata"/>
+      </genClasses>
+      <genClasses ecoreClass="MoSimCoupling.ecore#//SimulationFeature/SimulationTimeInformation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//SimulationFeature/SimulationTimeInformation/simulationTimeType"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Basic" disposableProviderFactory="true" ecorePackage="MoSimCoupling.ecore#//basic">
+      <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//basic/Identifier">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//basic/Identifier/id"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//basic/NamedElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//basic/NamedElement/Name"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//basic/Entity"/>
+      <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//basic/SemanticEntity">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//basic/SemanticEntity/semantics"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="DataRepresentation" disposableProviderFactory="true"
+        ecorePackage="MoSimCoupling.ecore#//DataRepresentation">
+      <nestedGenPackages prefix="OperationModel" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//DataRepresentation/OperationModel">
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//DataRepresentation/OperationModel/Operation">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/OperationModel/Operation/precondition"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/OperationModel/Operation/parameters"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/OperationModel/Operation/postcondition"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/OperationModel/Operation/returnType"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/OperationModel/Operation/operationexecutioneffect"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/OperationModel/Operation/exception"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/OperationModel/OperationExecutionEffect">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/OperationModel/OperationExecutionEffect/effect"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/OperationModel/OperationParameter">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/OperationModel/OperationParameter/optional"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/OperationModel/OperationParameter/dataType"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/OperationModel/Precondition">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/OperationModel/Precondition/description"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/OperationModel/Postcondition">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/OperationModel/Postcondition/description"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/OperationModel/Exception">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/OperationModel/Exception/message"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/OperationModel/Exception/exceptioncontainer"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/OperationModel/ExceptionContainer">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/OperationModel/ExceptionContainer/exception"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="DataTypes" disposableProviderFactory="true" ecorePackage="MoSimCoupling.ecore#//DataRepresentation/DataTypes">
+        <genEnums typeSafeEnumCompatible="false" ecoreEnum="MoSimCoupling.ecore#//DataRepresentation/DataTypes/PrimitiveDataType">
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//DataRepresentation/DataTypes/PrimitiveDataType/BOOL"/>
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//DataRepresentation/DataTypes/PrimitiveDataType/BYTE"/>
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//DataRepresentation/DataTypes/PrimitiveDataType/INTEGER"/>
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//DataRepresentation/DataTypes/PrimitiveDataType/STRING"/>
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//DataRepresentation/DataTypes/PrimitiveDataType/LONG"/>
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//DataRepresentation/DataTypes/PrimitiveDataType/DOUBLE"/>
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//DataRepresentation/DataTypes/PrimitiveDataType/CHAR"/>
+          <genEnumLiterals ecoreEnumLiteral="MoSimCoupling.ecore#//DataRepresentation/DataTypes/PrimitiveDataType/FLOAT"/>
+        </genEnums>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/DataType"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/EnumLiteral">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/DataTypes/EnumLiteral/literalName"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/DataTypes/EnumLiteral/literalValue"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/EnumLiteral/enumtype"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/Range">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/DataTypes/Range/lowerBounds"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/DataTypes/Range/upperBounds"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/BaseDataType">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/DataTypes/BaseDataType/stepSize"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/DataTypes/BaseDataType/initialValue"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/DataTypes/BaseDataType/primitiveDataType"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/BaseDataType/range"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/UnitTypeContainer">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/UnitTypeContainer/unit"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/Unit">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/Unit/basedatatype"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/DataTypes/Unit/unitSymbol"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/Unit/range"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/Unit/unittypecontainer"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/EnumType">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/EnumType/enumliteral"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/EnumType/representingDataType"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/DataTypeContainer">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/DataTypeContainer/unittypecontainer"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/DataTypeContainer/datatype"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/DataTypeCollection">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/DataTypeCollection/classicaldatatype"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/CombinedDataType">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/CombinedDataType/classicaldatatype"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/ClassicalDataType"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/ObjectClassReferenceDataType">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/ObjectClassReferenceDataType/objectclass"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataTypes/DataTypeMap">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/DataTypeMap/KeyType"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataTypes/DataTypeMap/valueType"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="DataSpecification" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//DataRepresentation/DataSpecification">
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataSpecification/CollectionTypedData">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataSpecification/CollectionTypedData/datatypecollection"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataSpecification/EnumTypedData">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataSpecification/EnumTypedData/enumtype"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataSpecification/BasicTypedData">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataSpecification/BasicTypedData/basedatatype"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataSpecification/GeneralTypedData"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataSpecification/UnitTypedData">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataSpecification/UnitTypedData/unit"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataSpecification/CombinedTypedData">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataSpecification/CombinedTypedData/combineddatatype"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataSpecification/RequiredReferenceProperty">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataSpecification/RequiredReferenceProperty/data"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataSpecification/ClassReferenceProperty">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataSpecification/ClassReferenceProperty/objectclassreferencedatatype"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/DataSpecification/MapTypedData">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/DataSpecification/MapTypedData/datatypemap"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="ObjectInstances" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//DataRepresentation/ObjectInstances">
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/DataToValueMap">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/DataToValueMap/value"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/DataToValueMap/key"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/EnumToLiteralMap">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/EnumToLiteralMap/value"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/EnumToLiteralMap/key"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/DataToObjectMap">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/DataToObjectMap/key"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/DataToObjectMap/value"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/ObjectInstance">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/ObjectInstance/ObjectAssignment"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/ObjectInstance/dataValueSetting"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/ObjectInstances/ObjectInstance/enumValueSetting"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="SimulationInformation" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation">
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectOrientedViewSimulationData">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectOrientedViewSimulationData/objectclass"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectOrientedViewSimulationData/objectinstance"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/RequiredDataEntry">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/RequiredDataEntry/simulationdata"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClassInheritance">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClassInheritance/operationoverride"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClassInheritance/childClasses"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/SimulationData">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/SimulationData/objectclassoperation"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/SimulationData/requireddataentry"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/OperationExecutionEffectOnData"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/PureRequiredOOEntry">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/PureRequiredOOEntry/objectclass"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClass">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClass/objectClassInheritance"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClass/objectorientedviewsimulationdata"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClass/parentClass"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClass/objectclassoperation"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClass/data"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClass/referencingrequiredooentry"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClass/purerequiredooentry"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/OperationOverride">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/OperationOverride/objectclassinheritance"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/OperationOverride/overridenOperation"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ReferencingRequiredOOEntry">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ReferencingRequiredOOEntry/objectclassoperation"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ReferencingRequiredOOEntry/data"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ReferencingRequiredOOEntry/objectclass"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/ObjectClassOperation"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/Data">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/Data/constant"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/Data/objectclass"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//DataRepresentation/SimulationInformation/Data/datatype"/>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="ModularSimulationAssembly" disposableProviderFactory="true"
+        ecorePackage="MoSimCoupling.ecore#//ModularSimulationAssembly">
+      <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/SimulationAssembly">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/SimulationAssembly/assembledsimulationcomponent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/SimulationAssembly/assembablecomponent"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/SimulationAssembly/interfacemapping"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/Assembly">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/Assembly/connection"/>
+      </genClasses>
+      <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/SimulationFeatureComponent">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/SimulationFeatureComponent/simmodule"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssembableComponent">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssembableComponent/componentconnector"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssembableComponent/adapterservice"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssembableComponent/adapterdescriptionattachment"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssembableComponent/simulationassembly"/>
+      </genClasses>
+      <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssembledSimulationComponent">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssembledSimulationComponent/encapsulatedSimulationAssembly"/>
+      </genClasses>
+      <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/MSEComponent">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/MSEComponent/mse_entity"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/SimulationComponent">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/SimulationComponent/interfacemapping"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/SimulationComponent/annotationenhancedinformation"/>
+      </genClasses>
+      <nestedGenPackages prefix="AssemblyConnections" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections">
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/Connection">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/Connection/assembly"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentConnector">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentConnector/assembablecomponent"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentConnector/mseserviceinterface"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/SimulationComponentConnector"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/MSEComponentConnector"/>
+        <nestedGenPackages prefix="ComponentWiring" disposableProviderFactory="true"
+            ecorePackage="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring">
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/MSEExchangeWiring">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/MSEExchangeWiring/coordinatorOne"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/MSEExchangeWiring/coordinatorTwo"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/MSEExchangeWiring/description"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/MSEExchangeWiring/coordinatorOnecomponentconnector"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/MSEExchangeWiring/coordinatorTwocomponentconnector"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/Simulation_MSEWiring">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/Simulation_MSEWiring/coordinator"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/Simulation_MSEWiring/simulationcomponentconnector"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/Simulation_MSEWiring/coordinatorcomponentconnector"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/WiringConnection"/>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/SimulationFeature_MSEWiring">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/SimulationFeature_MSEWiring/simulation"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/AssembledSimulation_MSEWiring">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/AssembledSimulation_MSEWiring/modularSimulation"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/ComponentWiring/AssembledSimulation_MSEWiring/hierarchyApproach"/>
+          </genClasses>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="InterfaceConnection" disposableProviderFactory="true"
+            ecorePackage="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection">
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/RequiringDelegationConnection">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/RequiringDelegationConnection/interfacerequired"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/RequiringDelegationConnection/simulationassembly"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/RequiringDelegationConnection/requieringComponent"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/RequiredProvidedInterfaceConnection">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/RequiredProvidedInterfaceConnection/providingComponent"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/RequiredProvidedInterfaceConnection/requieringComponent"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/RequiredProvidedInterfaceConnection/interfaceprovided"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/RequiredProvidedInterfaceConnection/interfacerequired"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/ProvidingDelegationConnection">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/ProvidingDelegationConnection/interfaceprovided"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/ProvidingDelegationConnection/simulationassembly"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/ProvidingDelegationConnection/providingComponent"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyConnections/InterfaceConnection/ComponentInterfaceConnection"/>
+        </nestedGenPackages>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="AnnotationEnhancement" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement">
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedObjectClass">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedObjectClass/additionenhancedoperation"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedObjectClass/additionenhanceddata"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedObjectClass/objectclass"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedOperation">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedOperation/annotatedparameter"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedOperation/objectclassoperation"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/OverriddenAnnotationEnhanced">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/OverriddenAnnotationEnhanced/AnnotationEnhanced"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotationEnhanced">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotationEnhanced/annotationsetter"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotationEnhanced/annotationinterface"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/OOAnnotationEnhancedInformation">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/OOAnnotationEnhancedInformation/additionenchancedobjectclass"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotationEnhancedInformation">
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotationEnhancedInformation/simulationcomponent"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedData">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedData/data"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedParameter">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AnnotationEnhancement/AnnotatedParameter/operationparameter"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="AssemblyInterface" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface">
+        <nestedGenPackages prefix="InterfaceDefinition" disposableProviderFactory="true"
+            ecorePackage="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition">
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceOperation">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceOperation/interfaceparameter"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceObjectClass">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceObjectClass/interfacedata"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceObjectClass/interfaceoperation"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceRepository">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceRepository/assemblyinterface"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceInformation"/>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceData">
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceData/dataTypeDescriptions"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/AssemblyInterface">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/AssemblyInterface/interfaceobjectclass"/>
+            <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/AssemblyInterface/interfacerepository"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/AssemblyInterface/interfaceoperation"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceParameter">
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceParameter/optional"/>
+            <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceDefinition/InterfaceParameter/dataTypeDescriptions"/>
+          </genClasses>
+        </nestedGenPackages>
+        <nestedGenPackages prefix="InterfaceMapping" disposableProviderFactory="true"
+            ecorePackage="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping">
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/ParameterToInterfaceMapping">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/ParameterToInterfaceMapping/annotatedparameter"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/ParameterToInterfaceMapping/interfaceparameter"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/OperationToInterfaceMapping">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/OperationToInterfaceMapping/annotatedoperation"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/OperationToInterfaceMapping/parameter_interface_mapping"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/OperationToInterfaceMapping/interfaceoperation"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceRequired">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceRequired/requieringinterfaceobjectclassmapping"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceRequired/simulationcomonent"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceRequired/requieringOperationMapping"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceProvided">
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceProvided/providinginterfaceobjectclassmapping"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceProvided/simulationcomonent"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceProvided/providingOperationMapping"/>
+          </genClasses>
+          <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceMapping">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/InterfaceMapping/assemblyinterface"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/DataToInterfaceMapping">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/DataToInterfaceMapping/annotateddata"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/DataToInterfaceMapping/interfacedata"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/RequiringObjectClassMapping">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/RequiringObjectClassMapping/annotatedobjectclass"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/RequiringObjectClassMapping/data_interface_mapping"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/RequiringObjectClassMapping/operation_interface_mapping"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/RequiringObjectClassMapping/requireddataentry"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/RequiringObjectClassMapping/interfaceobjectclass"/>
+          </genClasses>
+          <genClasses ecoreClass="MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/ProvidingObjectClassMapping">
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/ProvidingObjectClassMapping/additionenchancedobjectclass"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/ProvidingObjectClassMapping/operation_interface_mapping"/>
+            <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/ProvidingObjectClassMapping/data_interface_mapping"/>
+            <genFeatures notify="false" createChild="false" propertySortChoices="true"
+                ecoreFeature="ecore:EReference MoSimCoupling.ecore#//ModularSimulationAssembly/AssemblyInterface/InterfaceMapping/ProvidingObjectClassMapping/interfaceobjectclass"/>
+          </genClasses>
+        </nestedGenPackages>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Adaptation" disposableProviderFactory="true" ecorePackage="MoSimCoupling.ecore#//Adaptation">
+      <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/DataMarker">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/DataMarker/adaptationdefinitionrepository"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//Adaptation/Adaptable"/>
+      <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//Adaptation/AbstractInterfaceInformation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//Adaptation/AbstractInterfaceInformation/Semantics"/>
+      </genClasses>
+      <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationDefinitionRepository">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDefinitionRepository/adaptationconversion"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDefinitionRepository/adaptationdescription"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDefinitionRepository/datamarker"/>
+      </genClasses>
+      <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdapterDescriptionAttachment">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdapterDescriptionAttachment/adaptationmarkermapping"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdapterDescriptionAttachment/adaptationdescription"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdapterDescriptionAttachment/adapterservice"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdapterDescriptionAttachment/adaptationdefinitionrepository"/>
+      </genClasses>
+      <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationMarkerMapping">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationMarkerMapping/adapterdescriptionattachment"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationMarkerMapping/datamarker"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationMarkerMapping/adaptable"/>
+      </genClasses>
+      <nestedGenPackages prefix="AdapterServices" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//Adaptation/AdapterServices">
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdapterServices/DescriptiveAdapter"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdapterServices/SemanticAdapter"/>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//Adaptation/AdapterServices/DataMigrationAdapter"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdapterServices/WorkloadAdapter"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdapterServices/StructuralAdapter"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdapterServices/TimeAdapter"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdapterServices/FilterAdapter"/>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//Adaptation/AdapterServices/AdapterService"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="AdaptationConversion" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//Adaptation/AdaptationConversion">
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationConversion/AdaptationConversion">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//Adaptation/AdaptationConversion/AdaptationConversion/textualConversionDescription"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationConversion/AdaptationConversion/adaptationdefinitionrepository"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationConversion/MathematicalConversion">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//Adaptation/AdaptationConversion/MathematicalConversion/term"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//Adaptation/AdaptationConversion/MathematicalConversion/invertible"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationConversion/TransformationalConversion"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationConversion/FilteringConversion"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationConversion/CollectionFilteringAdaptation"/>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationConversion/DirectSourceCodeConversion">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//Adaptation/AdaptationConversion/DirectSourceCodeConversion/code"/>
+        </genClasses>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="AdaptationDescriptions" disposableProviderFactory="true"
+          ecorePackage="MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions">
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/AllToAllAdaptation">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/AllToAllAdaptation/datamarker"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/AllToAllAdaptation/adaptationconversion"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptation">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptation/linkedadaptationelement"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptation/lowestElement"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptation/highestElement"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/SingleAdaptation">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/SingleAdaptation/adaptationconversion"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/SingleAdaptation/datamarker"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/OneMarkerToManyAdaptation">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/OneMarkerToManyAdaptation/datamarker"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/OneMarkerToManyAdaptation/adaptationconversion"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/DerivedElement">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/DerivedElement/datamarker"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/DerivedElement/adaptationconversion"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/DerivedElement/baseconnectedadaptation"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/BaseconnectedAdaptation">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/BaseconnectedAdaptation/datamarker"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/BaseconnectedAdaptation/derivedelement"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptationElement">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptationElement/linkedElement"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptationElement/previousLink"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptationElement/nextLink"/>
+        </genClasses>
+        <genClasses ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptationElementLink">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptationElementLink/linkedadaptationelement"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/LinkedAdaptationElementLink/adaptationconversion"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/AdaptationDescription">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/AdaptationDescription/subProperty"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference MoSimCoupling.ecore#//Adaptation/AdaptationDescriptions/AdaptationDescription/adaptationdefinitionrepository"/>
+        </genClasses>
+      </nestedGenPackages>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

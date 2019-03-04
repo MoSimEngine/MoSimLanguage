@@ -11,7 +11,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.ModularEnvironment"
             class="aDL_Moddeling_Project.ModularEnvironment.ModularEnvironmentPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -19,7 +19,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.ManagementServices"
             class="aDL_Moddeling_Project.ModularEnvironment.ManagementServices.ManagementServicesPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -27,7 +27,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.ManagementServices.AdapterServices"
             class="aDL_Moddeling_Project.ModularEnvironment.ManagementServices.AdapterServices.AdapterServicesPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -35,7 +35,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.ModularSimulation"
             class="aDL_Moddeling_Project.ModularSimulation.ModularSimulationPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -43,7 +43,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.basic"
             class="aDL_Moddeling_Project.basic.BasicPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -51,7 +51,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.DataRepresentation"
             class="aDL_Moddeling_Project.DataRepresentation.DataRepresentationPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -59,7 +59,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.DataRepresentation.OperationModel"
             class="aDL_Moddeling_Project.DataRepresentation.OperationModel.OperationModelPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -67,7 +67,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.DataRepresentation.DataTypes"
             class="aDL_Moddeling_Project.DataRepresentation.DataTypes.DataTypesPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -75,7 +75,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.DataRepresentation.DataSpecification"
             class="aDL_Moddeling_Project.DataRepresentation.DataSpecification.DataSpecificationPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -83,7 +83,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.Assembly"
             class="aDL_Moddeling_Project.ModularSimulationAssembly.ModularSimulationAssemblyPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -91,7 +91,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.Assembly.AssemblyConnections"
             class="aDL_Moddeling_Project.ModularSimulationAssembly.AssemblyConnections.AssemblyConnectionsPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -99,7 +99,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.Assembly.AdditionEnhancement"
             class="aDL_Moddeling_Project.ModularSimulationAssembly.AssemblyAdditionEnhancement.AssemblyAdditionEnhancementPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -107,7 +107,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.Assembly.AssemblyInterface"
             class="aDL_Moddeling_Project.ModularSimulationAssembly.AssemblyInterface.AssemblyInterfacePackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
@@ -115,7 +115,7 @@
       <package
             uri="edu.kit.ipd.sdq.Modularization.UnstructuredDataView.Unstructured_DataRepositrory"
             class="aDL_Moddeling_Project.UnstructuredDataView.Unstructured_DataRepository.Unstructured_DataRepositoryPackage"
-            genModel="model/ADL_Genmodel.genmodel"/>
+            genModel="model/MoSimCoupling.genmodel"/>
    </extension>
 
 </plugin>
